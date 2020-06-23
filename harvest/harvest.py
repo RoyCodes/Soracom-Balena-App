@@ -1,4 +1,4 @@
-import sys, time, requests, json, random
+import time, requests, json, random
 
 while True:
     # Track the current time so we can loop at regular intervals
@@ -23,7 +23,6 @@ while True:
         print("Response 201: Success!")
     elif response.status_code == 400:
         print("Error 400: Harvest did not accept the data. Is Harvest enabled?")
-        sys.exit(1)
 
     # Sleep for X seconds before looping again
     time.sleep(10)
