@@ -1,18 +1,15 @@
 import time, requests, json, random
 
 while True:
-    # Track the current time so we can loop at regular intervals
-    loop_start_time = time.time()
-
     # Generate a random number and assign it to "random"
-    random = random.random(0,255)
+    telemetry = random.randint(0,255)
 
     # Set the HTTP request header and payload content
     headers = {"Content-Type": "application/json"}
-    payload = {"random": random}
+    payload = {"random": telemetry}
 
     # Send the HTTP request to Harvest via Unified Endpoint
-    print("Sending data %s to Harvest..." % (json.dumps(payload)))
+    print("Sending data %s to Harvest via Unified Endpoint..." % (json.dumps(payload)))
     try:
         response = requests.post("http://unified.soracom.io", data=json.dumps(payload), headers=headers, timeout=5)
     except requests.exceptions.ConnectTimeout:

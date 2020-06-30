@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY harvest.py /usr/src/app
 
 # install dependencies
-# RUN XYZ
+RUN pip3 install requests
 
 # command for running the application
 CMD ["python", "/usr/src/app/harvest.py"]
